@@ -1,9 +1,7 @@
 package com.custacc.service;
 
 import com.custacc.dto.AccountDto;
-import com.custacc.dto.CustomerDto;
 import com.custacc.dto.TransactionDto;
-import com.custacc.model.Customer;
 import com.custacc.model.Transaction;
 import com.custacc.repository.TransactionRepository;
 import org.modelmapper.ModelMapper;
