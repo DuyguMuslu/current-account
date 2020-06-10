@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Statements</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"
+          href="/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/webjars/datatables/1.10.20/css/jquery.dataTables.min.css}"
+          href="/webjars/datatables/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}"
+          href="/webjars/font-awesome/5.13.0/css/all.min.css">
+
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}" src="/webjars/jquery/3.5.0/jquery.min.js"></script>
+    <script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"
+            src="/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js"></script>
+    <script th:src="@{/webjars/datatables/1.10.20/js/jquery.dataTables.min.js}"
+            src="/webjars/datatables/1.10.20/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <table id="accountList">
+        <thead>
+        <tr>
+            <th scope="col">Account ID</th>
+            <th scope="col">Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="account : ${accounts}">
+            <td th:text="${account.accountID}"></td>
+            <td th:text="${account.balance}"></td>
+            <td>
+                <a th:href="@{/accounts/{accountID}/transaction(accountID=${account.accountID})}"
+                   class="btn btn-primary">
+                    <i class="fas fa-user-edit ml-2"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        $(document).ready( function () {
+            $('#accountList').DataTable();
+        });
+
+    </script>
+</div>
+</body>
+</html>
